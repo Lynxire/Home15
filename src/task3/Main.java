@@ -9,7 +9,7 @@ public class Main {
     public static void main(String[] args) {
         StudentTreatment.create();
         StudentTreatment.Graded();
-        StudentTreatment.printStudents(integers,3);
+        StudentTreatment.printStudents(integers,4);
 
     }
 
