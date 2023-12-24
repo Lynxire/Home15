@@ -11,6 +11,17 @@ public class DynamicArray<T> {
         this.array = new Object[DEFAULT_CAPACITY];
         this.size = 0;
     }
+    public DynamicArray(int index){
+        this.array = new Object[index];
+        this.size = 0;
+    }
+
+    private void ensureCapacity() {
+        if (size == array.length) {
+            int newCapacity = array.length * 2;
+            array = Arrays.copyOf(array, newCapacity);
+        }
+    }
 
     public void add(T element) {
         ensureCapacity();
@@ -23,7 +34,6 @@ public class DynamicArray<T> {
         T element = (T) array[index];
         return element;
     }
-
     public int size() {
         return size;
     }
@@ -41,16 +51,10 @@ public class DynamicArray<T> {
         }
         return false;
     }
+
     public void clear() {
         Arrays.fill(array, null);
         size = 0;
-    }
-
-    private void ensureCapacity() {
-        if (size == array.length) {
-            int newCapacity = array.length * 2;
-            array = Arrays.copyOf(array, newCapacity);
-        }
     }
 
     private void checkIndex(int index) {
