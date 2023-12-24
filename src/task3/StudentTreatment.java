@@ -5,21 +5,9 @@ import java.util.Iterator;
 import java.util.List;
 
 public class StudentTreatment {
-
-
-
-    public static void create(){
-        Main.integers.add(new Student("Oleg", 2,3,5));
-        Main.integers.add(new Student("Petr", 4,2,1));
-        Main.integers.add(new Student("Kira", 1,3,4));
-        Main.integers.add(new Student("Pupa", 1,3,2));
-        Main.integers.add(new Student("Egor", 1,1,2));
-        Main.integers.forEach(System.out::println);
-        System.out.println("===========================");
-    }
-    public static void Graded(){
+    public static void Graded(List<Student> studentList){
         System.out.println("GRADE");
-        Iterator<Student> iterator = Main.integers.iterator();
+        Iterator<Student> iterator = studentList.iterator();
         while (iterator.hasNext()) {
             Student student = iterator.next();
             if (student.getGrade() < 3) {
